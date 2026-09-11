@@ -104,7 +104,51 @@ namespace ISIP124_Lenchevskii
 
                         Console.WriteLine("Отсортировано!");
                         break;
-                    
+
+                    case 4:
+                        Console.WriteLine("1.Доллар (85,46)");
+                        Console.WriteLine("2.Евро (99,25)");
+                        Console.WriteLine("3.Свой курс");
+                        Console.Write("Выбери: ");
+                        int val = Convert.ToInt32(Console.ReadLine());
+
+                        double kurs = 0;
+                        string valuta = "";
+
+                        if (val == 1)
+                        {
+                            kurs = 85.46;
+                            valuta = "долларах";
+                        }
+                        else if (val == 2)
+                        {
+                            kurs = 99.25;
+                            valuta = "евро";
+                        }
+                        else if (val == 3)
+                        {
+                            Console.Write("Курс: ");
+                            string vvod = Console.ReadLine();
+                            vvod = vvod.Replace(',', '.');
+                            kurs = Convert.ToDouble(vvod);
+                            valuta = "валюте";
+                        }
+
+                        if (kurs == 0)
+                        {
+                            Console.WriteLine("Нет такой");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Цены в " + valuta + ":");
+                            for (int k = 0; k < kolvo; k++)
+                            {
+                                double res = ceny[k] / kurs;
+                                Console.WriteLine(tovary[k] + " - " + Math.Round(res, 2));
+                            }
+                        }
+                        break;
+
                     case 0:
                         Console.WriteLine("Пока");
                         rabotaem = false;
