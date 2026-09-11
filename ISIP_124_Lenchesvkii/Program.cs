@@ -63,7 +63,48 @@ namespace ISIP124_Lenchevskii
                             Console.WriteLine((k + 1) + ") " + tovary[k] + " - " + ceny[k] + " руб.");
                         }
                         break;
+                    case 2:
+                        double summa = 0;
+                        double max = ceny[0];
+                        double min = ceny[0];
 
+                        for (int k = 0; k < kolvo; k++)
+                        {
+                            summa = summa + ceny[k];
+
+                            if (ceny[k] > max) max = ceny[k];
+                            if (ceny[k] < min) min = ceny[k];
+                        }
+
+                        double sred = summa / kolvo;
+
+                        Console.WriteLine("Сумма: " + summa);
+                        Console.WriteLine("Средн: " + sred);
+                        Console.WriteLine("Макс: " + max);
+                        Console.WriteLine("Мин: " + min);
+                        break;
+
+                    case 3:
+                        for (int a = 0; a < kolvo - 1; a++)
+                        {
+                            for (int b = 0; b < kolvo - 1 - a; b++)
+                            {
+                                if (ceny[b] > ceny[b + 1])
+                                {
+                                    double buf = ceny[b];
+                                    ceny[b] = ceny[b + 1];
+                                    ceny[b + 1] = buf;
+
+                                    string buf2 = tovary[b];
+                                    tovary[b] = tovary[b + 1];
+                                    tovary[b + 1] = buf2;
+                                }
+                            }
+                        }
+
+                        Console.WriteLine("Отсортировано!");
+                        break;
+                    
                     case 0:
                         Console.WriteLine("Пока");
                         rabotaem = false;
