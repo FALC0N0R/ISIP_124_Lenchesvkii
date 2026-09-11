@@ -39,6 +39,41 @@ namespace ISIP124_Lenchevskii
             }
 
             Console.WriteLine("Записано!");
+            bool rabotaem = true;
+
+            while (rabotaem)
+            {
+                Console.WriteLine();
+                Console.WriteLine("1 - Показать траты");
+                Console.WriteLine("2 - Статистика");
+                Console.WriteLine("3 - Сортировка");
+                Console.WriteLine("4 - Конвертация");
+                Console.WriteLine("5 - Поиск");
+                Console.WriteLine("0 - Выход");
+                Console.Write("Выбери: ");
+
+                int punkt = Convert.ToInt32(Console.ReadLine());
+
+                switch (punkt)
+                {
+                    case 1:
+                        Console.WriteLine("Все траты:");
+                        for (int k = 0; k < kolvo; k++)
+                        {
+                            Console.WriteLine((k + 1) + ") " + tovary[k] + " - " + ceny[k] + " руб.");
+                        }
+                        break;
+
+                    case 0:
+                        Console.WriteLine("Пока");
+                        rabotaem = false;
+                        break;
+
+                    default:
+                        Console.WriteLine("Нет такого пункта");
+                        break;
+                }
+            }
         }
     }
-}
+}   
