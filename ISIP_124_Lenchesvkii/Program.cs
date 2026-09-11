@@ -149,6 +149,27 @@ namespace ISIP124_Lenchevskii
                         }
                         break;
 
+                    case 5:
+                        Console.Write("Что искать: ");
+                        string poisk = Console.ReadLine().ToLower();
+
+                        bool found = false;
+
+                        for (int k = 0; k < kolvo; k++)
+                        {
+                            if (tovary[k].ToLower().Contains(poisk))
+                            {
+                                Console.WriteLine(tovary[k] + " - " + ceny[k]);
+                                found = true;
+                            }
+                        }
+
+                        if (found == false)
+                        {
+                            Console.WriteLine("Ничего нет");
+                        }
+                        break;
+
                     case 0:
                         Console.WriteLine("Пока");
                         rabotaem = false;
